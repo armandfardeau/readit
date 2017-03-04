@@ -1,2 +1,6 @@
 <h1>Stories#index</h1>
-<%= @current_time %>
+<a
+href="<%= @story.link %>"><%= @story.name %></a>
+
+<h3>There is <%= @count %> <%= @count > 1 ? 'stories' : 'story' %> on this website on this moment</h3>
+
