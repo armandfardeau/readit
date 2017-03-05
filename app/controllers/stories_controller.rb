@@ -3,18 +3,22 @@ class StoriesController < ApplicationController
     @story = Story.order('RANDOM()').first
     @count = Story.count
   end
+
   def new
     @story = Story.new
   end
 
   def create
     @story = Story.new(story_params)
-    @story.save
-    flash[:notice] = "Story submission succeeded"
-    redirect_to stories_path
+    if @story.save
+      flash[:notice] = "Story submission succeeded"
+      redirect_to stories_path
+    else
+      render action: 'new'
+    end
   end
 
-private
+  private
   def story_params
     params.require(:story).permit(:name, :link)
   end
