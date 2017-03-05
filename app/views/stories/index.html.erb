@@ -1,8 +1,13 @@
-<h1>Stories#index</h1>
-<a
-href="<%= @story.link %>"><%= @story.name %></a>
-
-<h3>There is <%= @count %> <%= @count > 1 ? 'stories' : 'story' %> on this website on this moment</h3>
-
-<a href="<%= new_story_path %>">Create a new story</a>
-
+<h2>Stories</h2>
+<div>
+  <p><h3>A random link: </h3>
+    <a
+    href="<%= @story.link %>"><%= @story.name %></a>
+  </p>
+</div>
+<div>
+  <h4>There is <%= @count %> <%= @count > 1 ? 'stories' : 'story' %> on this website on this moment</h4>
+</div>
+<div>
+  <a href="<%= new_story_path %>">Create a new story</a>
+</div>

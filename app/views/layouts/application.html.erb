@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Readit</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Readit</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-  <div class="content" id="content">
-    <h1>Readit</h1>
-    <%= yield %>
+<body>
+<div class="content" id="content">
+  <h1>Readit</h1>
+  <% unless flash[:notice].blank? %>
+  <div id="notification" class="notification">
+    <%= flash[:notice]%>
   </div>
-  </body>
+  <% end %>
+  <%= yield %>
+</div>
+</body>
 </html>
