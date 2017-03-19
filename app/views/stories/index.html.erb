@@ -1,11 +1,9 @@
 <h2>Stories</h2>
 <div>
   <% unless @story.nil? %>
-      <p>
       <h3>A random link: </h3>
-      <a href="<%= @story.link %>" target="_blank"><%= @story.name %></a>
-      </p>
-      <% else%>
+      <p><%= link_to @story.name, @story %></p>
+  <% else %>
       <p>There is no story yet, why not create your own?</p>
   <% end %>
 </div>
