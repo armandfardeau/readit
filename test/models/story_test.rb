@@ -4,7 +4,7 @@ class StoryTest < ActiveSupport::TestCase
   test 'is not valid without a name' do
     s = Story.create(
         name: nil,
-        link: 'www.example.com'
+        link: 'http://www.example.com'
     )
     assert s.errors[:name].any?
     refute s.valid?
@@ -20,7 +20,7 @@ class StoryTest < ActiveSupport::TestCase
   test 'is valid with required attributes' do
     s = Story.create(
         name: 'My test submission',
-        link: 'www.example.com'
+        link: 'http://www.example.com'
     )
     assert s.valid?
   end
