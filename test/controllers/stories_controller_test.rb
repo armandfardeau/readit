@@ -8,7 +8,7 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get :new
+    get new_story_path
     assert_response :success
     assert_template 'new'
     assert_not_nil assigns(:story)
