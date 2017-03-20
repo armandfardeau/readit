@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+* html #content {
+  height: 1%;
+}
+
 body {
   background-color: #666666;
   margin: 15px 25px;
@@ -20,23 +24,35 @@ input {
   background-color: #fff;
   border: 10px solid #cccccc;
   padding: 10px 10px 20px 20px;
+  overflow: hidden;
 }
 
 .notification {
-border: 5px solid #9c9;
+  border: 5px solid #9c9;
   background-color: #cfc;
-  padding:5px;
-  margin:10px 0;
+  padding: 5px;
+  margin: 10px 0;
 }
 
-.field_with_errors{
-  color:red;
+.field_with_errors {
+  color: red;
   background: transparent;
-  input{
+  input {
     border: thin solid red;
   }
 }
 
-.errors{
-  color:red;
+.errors {
+  color: red;
+}
+
+#vote_history {
+  padding: 5px;
+  margin: 0;
+  list-style: none;
+  border: 3px solid #CCCCCC;
+  background-color: #eeeeee;
+  float: right;
+  color: #999;
+  font-size: smaller;
 }
