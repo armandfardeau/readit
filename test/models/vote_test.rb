@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class VoteTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "Votes have a story" do
+    assert stories:(:one) == votes(:one).story
+  end
 end
