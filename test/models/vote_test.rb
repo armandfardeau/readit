@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class VoteTest < ActiveSupport::TestCase
-  test "Votes have a story" do
-    assert stories:(:one) == votes(:one).story
+  test "votes have a story" do
+    puts votes
+    assert_equal stories(:one), votes(:one).story
   end
 end
