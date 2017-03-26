@@ -1,6 +1,5 @@
 class StoriesController < ApplicationController
   before_action :ensure_login, only: [:new, :create]
-
   def index
     @story = Story.order('RANDOM()').first
     @count = Story.count
@@ -23,8 +22,6 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
   end
-
-  private
   def story_params
     params.require(:story).permit(:name, :link)
   end
