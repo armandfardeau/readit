@@ -12,5 +12,12 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !@current_user.nil?
   end
+
   helper_method :logged_in?
+
+  def ensure_login
+    return true if logged_in?
+    session[:return_to] = request.fullpath
+    redirect_to new_session_path and return false
+  end
 end
