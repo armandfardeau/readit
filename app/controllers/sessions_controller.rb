@@ -6,7 +6,12 @@ class SessionsController < ApplicationController
     @current_user = User.find_by(email: params[:email])
     if @current_user && @current_user.authenticate(params[:password])
       session[:user_id] = @current_user.id
-      redirect_to stories_path
+      if session[:return_to]
+        redirect_to session[:return_to]
+        session[:return_to] = nil
+      else
+        redirect_to stories_path
+      end
     else
       render action: 'new'
     end
@@ -15,4 +20,5 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = @current_user = nil
   end
+
 end
