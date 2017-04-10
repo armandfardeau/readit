@@ -32,4 +32,8 @@ class StoryTest < ActiveSupport::TestCase
     10.times { stories(:one).votes.create }
     assert_equal 3, stories(:one).votes.latest.size
   end
+
+  test "is associated with a user" do
+    assert_equal users(:glenn), stories(:one).user
+  end
 end
