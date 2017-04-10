@@ -55,4 +55,18 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'div#vote_form form'
   end
 
+  test "show story submitter" do
+    get story_path(stories(:one))
+    assert_select 'p.submitted_by span', 'Glenn Goodrich'
+  end
+
+  test "indicates not logged in" do
+    get stories_path
+    assert_select 'div#login_logout em', 'not logged in'
+  end
+
+  test "show navigation menu" do
+    get stories_path
+    assert_select 'ul#navigation li', 2
+  end
 end
