@@ -6,5 +6,15 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
+  def login_user
+    post session_path, parmas: {
+        email: users(:glenn).email,
+        password: 'sekrit'
+    }
+  end
+
+  def logout_user
+    delete session_path
+  end
   # Add more helper methods to be used by all tests here...
 end
