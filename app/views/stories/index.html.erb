@@ -1,12 +1,13 @@
 <h2>Stories</h2>
 <div>
-  <% unless @story.nil? %>
-      <h3>A random link: </h3>
-      <p><%= link_to @story.name, @story %></p>
-  <% else %>
+  <% if @story.nil? %>
       <p>There is no story yet, why not create your own?</p>
+  <% else %>
+      <h2><%= "Showing #{ pluralize(@story.size, 'story', 'stories')}" %></h2>
   <% end %>
+  <%= render partial: 'story', collection: @story %>
 </div>
+
 <div>
   <h4>There is <%= @count %> <%= @count > 1 ? 'stories' : 'story' %> on this website on this moment</h4>
 </div>
