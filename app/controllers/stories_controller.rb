@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
   before_action :ensure_login, only: [:new, :create]
   def index
-    @story = Story.order('RANDOM()').first
+    @story = Story.where('vote_count >=5').order('id DESC')
     @count = Story.count
   end
 
