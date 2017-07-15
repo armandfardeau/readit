@@ -1,14 +1,7 @@
 <h2>Stories</h2>
-<% if controller.action_name =='index' %>
-
-<% end %>
 <div>
-  <% if @story.nil? %>
-      <p>There is no story yet, why not create your own?</p>
-  <% else %>
-      <h2><%= story_list_heading %></h2>
-  <% end %>
-  <%= render partial: 'story', collection: @story %>
+  <h2><%= story_list_heading %></h2>
+  <%= render partial: @stories %>
 </div>
 
 <% if !@count.nil? %>
