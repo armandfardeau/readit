@@ -8,6 +8,7 @@ class StoriesController < ApplicationController
 
   def bin
     @stories = Story.upcoming
+    @count = Story.count
     render action: "index"
   end
 
