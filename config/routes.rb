@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   root 'stories#index'
 
   resources :stories do
-    resources :votes do
-
+    collection do
+      get 'bin'
     end
+    resources :votes
   end
   resource :session
 

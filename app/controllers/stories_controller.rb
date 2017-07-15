@@ -1,7 +1,8 @@
 class StoriesController < ApplicationController
   before_action :ensure_login, only: [:new, :create]
+
   def index
-    @story = Story.where('votes_count >=5').order('id DESC')
+    @story = Story.popular
     @count = Story.count
   end
 
@@ -22,7 +23,14 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
   end
+
   def story_params
     params.require(:story).permit(:name, :link)
   end
+
+  def bin
+    @stories = Story.upcoming
+    render action: index
+  end
 end
+

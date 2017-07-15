@@ -10,4 +10,7 @@ class Story < ApplicationRecord
   def to_param
     "#{id}-#{name.gsub(/\W/, '-').downcase}"
   end
+
+  scope :upcoming, -> {where('votes_count <5').order('id DESC')}
+  scope :popular, -> {where('votes_count >=5').order('id DESC')}
 end
