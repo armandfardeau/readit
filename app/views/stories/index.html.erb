@@ -1,16 +1,21 @@
 <h2>Stories</h2>
+<% if controller.action_name =='index' %>
+
+<% end %>
 <div>
   <% if @story.nil? %>
       <p>There is no story yet, why not create your own?</p>
   <% else %>
-      <h2><%= "Showing #{ pluralize(@story.size, 'story', 'stories')}" %></h2>
+      <h2><%= story_list_heading %></h2>
   <% end %>
   <%= render partial: 'story', collection: @story %>
 </div>
 
-<div>
-  <h4>There is <%= @count %> <%= @count > 1 ? 'stories' : 'story' %> on this website on this moment</h4>
-</div>
-<div>
-  <a href="<%= new_story_path %>">Create a new story</a>
-</div>
+<% if !@count.nil? %>
+    <div>
+      <h4>There is <%= @count %> <%= @count > 1 ? 'stories' : 'story' %> on this website on this moment</h4>
+    </div>
+    <div>
+      <a href="<%= new_story_path %>">Create a new story</a>
+    </div>
+<% end %>
