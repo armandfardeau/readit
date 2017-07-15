@@ -11,10 +11,17 @@
       <%= render partial: 'votes/vote', collection: @story.votes.latest %>
   <% end %>
 </ul>
+<% if !@story.description.nil? %>
+    <div class="description">
+      <h3>Description</h3>
+      <p><%= @story.description %></p>
+    </div>
+<% end %>
 <p class="submitted_by">
   Submitted by:
   <span><%= @story.user.name %></span>
 </p>
+
 <p><%= link_to @story.link, @story.link %></p>
 <div id="vote_form">
   <%= form_for [@story, Vote.new], remote: true do |f| %>
