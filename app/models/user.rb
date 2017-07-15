@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :stories
   has_many :votes
   has_many :stories_voted_on,
-           trough: :votes,
+           through: :votes,
            source: :story
 end
 
