@@ -5,10 +5,10 @@
 </div>
 
 <% if !@count.nil? %>
-    <div>
+    <div class="count">
       <h4>There is <%= @count %> <%= @count > 1 ? 'stories' : 'story' %> on this website on this moment</h4>
     </div>
-    <div>
+    <div class="submit_story">
       <a href="<%= new_story_path %>">Create a new story</a>
     </div>
 <% end %>
