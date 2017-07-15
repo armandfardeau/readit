@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => 'temp_home#redirect'
+  root 'stories#index'
 
   resources :stories do
     resources :votes do
