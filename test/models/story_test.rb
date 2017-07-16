@@ -29,11 +29,16 @@ class StoryTest < ActiveSupport::TestCase
   end
 
   test "return 3 latest votes" do
-    10.times { stories(:one).votes.create(user: users(:glenn)) }
+    10.times {stories(:one).votes.create(user: users(:glenn))}
     assert_equal 3, stories(:one).votes.latest.size
   end
 
   test "is associated with a user" do
     assert_equal users(:glenn), stories(:one).user
+  end
+  test "increments vote counter cache" do
+    stories(:two).votes.create(user: users(:glenn))
+    stories(:two).reload
+    assert_equal 1, stories(:two).attributes['votes_count']
   end
 end
