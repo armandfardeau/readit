@@ -93,4 +93,7 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert response.body.include?(stories(:two).name)
   end
+  test "story index is default" do
+    assert_recognizes({controller: "stories", action: "index"}, "/")
+  end
 end
