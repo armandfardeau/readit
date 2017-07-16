@@ -6,7 +6,7 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     login_user
     get new_story_path
     assert_response :success
-    assert_select 'form div', count: 2
+    assert_select 'form div', count: 3
   end
 
   test "adds a story" do
@@ -70,7 +70,7 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "show navigation menu" do
     get stories_path
-    assert_select 'ul#navigation li', 2
+    assert_select 'ul#navigation li', 3
   end
 
   test "redirects if not logged in" do
