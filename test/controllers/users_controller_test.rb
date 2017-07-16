@@ -11,5 +11,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert response.body.include?(users(:glenn).name)
   end
+  test "show submitted" do
+    get user_path(users(:glenn))
+    assert_select 'div.stories_submitted div.story', count: 2
+  end
 
 end
