@@ -96,4 +96,9 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
   test "story index is default" do
     assert_recognizes({controller: "stories", action: "index"}, "/")
   end
+  test "shows stories on index" do
+    get stories_path
+    assert_select 'h2', 'Showing 1 front-page story'
+    assert_select 'div#content div.story', count: 1
+  end
 end
