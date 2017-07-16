@@ -100,5 +100,10 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     get stories_path
     assert_select 'h2', 'Showing 1 front-page story'
     assert_select 'div#content div.story', count: 1
+    end
+  test "shows stories in bin" do
+    get bin_stories_path
+    assert_select 'h2', 'Showing 2 upcoming stories'
+    assert_select 'div#content div.story', count: 2
   end
 end
