@@ -46,4 +46,12 @@ class StoryTest < ActiveSupport::TestCase
     stories(:one).reload
     assert_equal 1, stories(:one).attributes['votes_count']
   end
+  test "casts vote after creating a story" do
+    s = Story.create(
+        name: "Vote 2008 Election",
+        link: "http://www.votessmart.org/",
+        user: users(:glenn)
+    )
+    assert_equal users(:glenn), s.votes.first.user
+  end
 end
