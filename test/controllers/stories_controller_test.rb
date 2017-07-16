@@ -83,5 +83,10 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     get story_path(stories(:one))
     assert_select 'p.submitted_by span', 'Glenn Goodrich'
   end
+  test "get stories" do
+    get stories_path
+    assert_response :success
+    assert response.body.include?(stories(:promoted).name)
+  end
 
 end
