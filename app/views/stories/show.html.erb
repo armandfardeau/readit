@@ -19,7 +19,7 @@
 <% end %>
 <p class="submitted_by">
   Submitted by:
-  <span><%= @story.user.name %></span>
+  <span><%= link_to @story.user.name, @story.user %></span>
 </p>
 
 <% if logged_in? %>
