@@ -61,6 +61,7 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "show story vote elements" do
+    login_user
     get story_path(stories(:one))
     assert_select 'h2 span#vote_score'
     assert_select 'ul#vote_history li', count: 2
