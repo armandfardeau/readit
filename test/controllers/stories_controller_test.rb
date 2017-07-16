@@ -90,7 +90,7 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "show story submitter" do
     get story_path(stories(:one))
-    assert_select 'p.submitted_by span', 'Glenn Goodrich'
+    assert_select 'p.submitted_by span a', 'Glenn Goodrich'
   end
   test "get stories" do
     get stories_path
