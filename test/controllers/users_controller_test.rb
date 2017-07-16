@@ -6,4 +6,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "show user" do
+    get user_path(users(:glenn))
+    assert_response :success
+    assert response.body.include?(users(:glenn).name)
+  end
+
 end
