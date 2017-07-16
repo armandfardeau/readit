@@ -7,8 +7,8 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     get new_story_path
     assert_response :success
     assert_select 'form div', count: 3
-    end
-  test  "new shows a new story form" do
+  end
+  test "new shows a new story form" do
     login_user
     get new_story_path
     assert_select 'form p', count: 3
@@ -67,7 +67,10 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'ul#vote_history li', count: 2
     assert_select 'div#vote_form form'
   end
-
+  test "does not show button when not logged in" do
+    get story_path(stories(:one))
+    assert_select 'div#vote_link', false
+  end
 
   test "indicates not logged in" do
     get stories_path
@@ -106,7 +109,7 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     get stories_path
     assert_select 'h2', 'Showing 1 front-page story'
     assert_select 'div#content div.story', count: 1
-    end
+  end
   test "shows stories in bin" do
     get bin_stories_path
     assert_select 'h2', 'Showing 2 upcoming stories'
