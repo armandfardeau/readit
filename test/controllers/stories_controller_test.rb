@@ -124,10 +124,12 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
   end
   test 'add story with tag' do
     login_user
-    post :create, story: {
-        name: 'story with tags',
-        link: 'http://www.story-with-tags.com/',
-        tag_list: 'rails, blog'
+    post stories_path, params: {
+        story: {
+          name: 'story with tags',
+              link: 'http://www.story-with-tags.com/',
+              tag_list: 'rails, blog'
+        }
     }
     assert_equal ['rails', 'blog'], assigns(:story).tag_list
   end
