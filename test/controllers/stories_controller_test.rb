@@ -68,7 +68,7 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'ul#vote_history li', count: 2
     assert_select 'div#vote_form form'
   end
-  
+
   test "does not show button when not logged in" do
     get story_path(stories(:one))
     assert_select 'div#vote_link', false
@@ -121,6 +121,15 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     get bin_stories_path
     assert_select 'h2', 'Showing 2 upcoming stories'
     assert_select 'div#content div.story', count: 2
+  end
+  test 'add story with tag' do
+    login_user
+    post :create, story: {
+        name: 'story with tags',
+        link: 'http://www.story-with-tags.com/',
+        tag_list: 'rails, blog'
+    }
+    assert_equal [ 'rails', 'blog' ], assigns(:story).tag_list
   end
 
 end
