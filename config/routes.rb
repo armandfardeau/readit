@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'stories#index'
 
   resources :stories do
@@ -9,5 +10,6 @@ Rails.application.routes.draw do
   end
   resource :session
   resources :users
+  resources :tags
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
