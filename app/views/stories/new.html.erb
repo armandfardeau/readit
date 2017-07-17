@@ -24,5 +24,9 @@
       <p><%= f.label :description %></p>
       <%= f.text_area :description %>
     </div>
+    <div>
+      <p>Tags (comma separated):<br/>
+      <%= f.text_field :tag_list %></p>
+    </div>
     <%= submit_tag %>
 <% end %>
