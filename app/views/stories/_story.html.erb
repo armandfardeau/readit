@@ -2,4 +2,7 @@
   <h3><%= link_to story.name, story %></h3>
   <p>Submitted by: <%= story.user.name %> |
     Score: <%= story.votes_count %></p>
+  <% unless story.tag_list.empty? %>
+      <p>Tags: <%= story.tag_list %></p>
+  <% end %>
 </div>
