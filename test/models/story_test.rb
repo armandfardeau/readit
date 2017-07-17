@@ -60,4 +60,9 @@ class StoryTest < ActiveSupport::TestCase
     assert_equal 2, stories(:one).tags.size
     assert_equal ['blog', 'ruby'], stories(:one).tag_list
   end
+  test 'find tagged with' do
+    stories(:one).tag_list = 'blog', 'ruby'
+    stories(:one).save
+    assert_equal [stories(:one)], Story.tagged_with('blog')
+  end
 end
