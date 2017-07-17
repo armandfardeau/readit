@@ -11,7 +11,7 @@
       <%= render partial: 'votes/vote', collection: @story.votes.latest %>
   <% end %>
 </ul>
-<% unless @story.description.empty? %>
+<% unless @story.description.nil? %>
     <div class="description">
       <h3>Description</h3>
       <p><%= @story.description %></p>
