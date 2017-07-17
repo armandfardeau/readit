@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class TagsControllerTest < ActionDispatch::IntegrationTest
-  test "renders tagged stories" do
+  test 'renders tagged stories' do
     stories(:one).tag_list = 'blog, ruby'
     stories(:one).save
     get tag_path('ruby')

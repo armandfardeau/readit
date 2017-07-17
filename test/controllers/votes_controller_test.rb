@@ -9,23 +9,23 @@ class VotesControllerTest < ActionDispatch::IntegrationTest
     logout_user
   end
 
-  test "creates vote" do
+  test 'creates vote' do
     assert_difference 'stories(:two).votes.count' do
       post story_votes_path(stories(:two))
     end
   end
 
-  test "create vote with ajax" do
+  test 'create vote with ajax' do
     post story_votes_path(stories(:two)), xhr: true
     assert_response :success
   end
 
-  test "redirect after vote with http post" do
+  test 'redirect after vote with http post' do
     post story_votes_path(stories(:two))
     assert_redirected_to story_path(stories(:two))
   end
 
-  test "Store users with vote" do
+  test 'Store users with vote' do
     post story_votes_path(stories(:two))
     stories(:two).reload
     assert_equal users(:glenn), stories(:two).votes.last.user
