@@ -133,10 +133,11 @@ class StoriesControllerTest < ActionDispatch::IntegrationTest
     }
     assert_equal ['rails', 'blog'], assigns(:story).tag_list
   end
+
   test 'show story with tags' do
     stories(:promoted).tag_list = 'apple, music'
     stories(:promoted).save
-    get stories_path(stories(:promoted))
+    get story_path(stories(:promoted))
     assert_select 'p.tags a', 2
   end
 end
