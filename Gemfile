@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+#act as taggable on to tag EVERYTHING
+gem 'acts-as-taggable-on', '~> 4.0'
 
 gem 'rails-controller-testing' , '~> 1.0.1'
 
